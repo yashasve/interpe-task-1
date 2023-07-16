@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Calculate me! - A calculator made my me</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+
+  <!-- heading of the calculator -->
+  <h1 class="text-center">Welcome to Calculator</h1>
+
+<!--this is a container that contains keys(buttons)-->
+  <div class="container flex flex-col items-center">
+
+    <div class="row">
+      <!-- input to the user for calcualating values -->
+      <input class="input" type="text" value="0"/>
+    </div>
+
+    <!-- Row 1 -->
+    <div class="row">
+      <button class="button clear">C</button>
+      <button class="button mod ">%</button>
+      <button class="button M+">M+</button>
+      <button class="button M-">M-</button>
+    </div>
+
+    <!-- Making four Rows for all buttons-->
+    
+     <!-- Row 1 -->
+    <div class="row">
+      <button class="button b7">7</button>
+      <button class="button b8">8</button>
+      <button class="button b9">9</button>
+      <button class="button multiply">*</button>
+    </div>
+
+     <!-- Row 2 -->
+    <div class="row">
+      <button class="button b4">4</button>
+      <button class="button b5">5</button>
+      <button class="button b6">6</button>
+      <button class="button division">/</button>
+    </div>
+
+     <!-- Row 3 -->
+    <div class="row">
+      <button class="button b1">1</button>
+      <button class="button b2">2</button>
+      <button class="button b3">3</button>
+      <button class="button addition">+</button>
+    </div>
+
+     <!-- Row 4 -->
+    <div class="row">
+      <button class="button b0">0</button>
+      <button class="button dot">.</button>
+      <button class="button equal">=</button>
+      <button class="button sub">-</button>
+    </div>
+  </div>
+
+  <!-- Main logic Using Java script -->
+<script>
+  // Todo: Make M+ M- and MC functional
+let string = "";
+let buttons = document.querySelectorAll('.button');
+Array.from(buttons).forEach((button)=>{
+  button.addEventListener('click', (e)=>{
+    if(e.target.innerHTML == '='){
+      string = eval(string);
+      document.querySelector('input').value = string;
+    }
+    else if(e.target.innerHTML == 'C'){
+      string = ""
+      document.querySelector('input').value = string;
+    }
+    else{ 
+    console.log(e.target)
+    string = string + e.target.innerHTML;
+    document.querySelector('input').value = string;
+      }
+  })
+})
+</script>
+</body>
+
+</html>
